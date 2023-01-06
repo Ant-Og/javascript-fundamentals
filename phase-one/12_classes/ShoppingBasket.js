@@ -5,7 +5,7 @@ class ShoppingBasket {
   }
 
   addItem(candyItem) {
-    return this.basket.concat(candyItem);
+    return this.basket.push(candyItem);
   }
 
   getTotalPrice() {
