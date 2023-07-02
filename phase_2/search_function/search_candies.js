@@ -16,20 +16,16 @@ const candies = [
 
 const searchCandies = (String, Number) => {
   
-  // let splitString = String.split('');
-  // splitString[0].toUpperCase();
-  // console.log(splitString);
-  // let uppercasedName = splitString.join('');
-  // console.log(uppercasedName);
-
   uppercasedName = 
     String.charAt(0).toUpperCase()
-    + String.slice(1)
+    + String.slice(1);
 
   let result = 
-  candies.filter(candy => candy.name.startsWith(uppercasedName) && Number >= candy.price);
+    candies.filter(candy => candy.name.startsWith(uppercasedName) && Number >= candy.price);
 
-  let candyList = result.map(candy => candy.name);
+  let candyList = 
+    result.map(candy => candy.name);
+  
   return candyList;
 };
 
