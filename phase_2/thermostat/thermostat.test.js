@@ -8,7 +8,7 @@ describe('Thermostat', () =>{
 
   it('Increases the temperature by 1 degree celcius', () => {
     const thermostat = new Thermostat();
-    thermostat.up();
+    thermostat.up(1);
     expect(thermostat.getTemperature()).toEqual(21)
   });
 
@@ -20,7 +20,7 @@ describe('Thermostat', () =>{
 
   it('decreases the temperature by 1 degree celcius', () => {
     const thermostat = new Thermostat();
-    thermostat.down();
+    thermostat.down(1);
     expect(thermostat.getTemperature()).toEqual(19)
   });
 
@@ -32,8 +32,15 @@ describe('Thermostat', () =>{
 
   it('cannot decrease the temperature below 10 degrees celcius', () => {
     const thermostat = new Thermostat();
-    expect(thermostat.down(11)).toEqual('Temperature cannot be set below 10 degrees celcius')
-    expect(thermostat.getTemperature()).toEqual(20)
+    expect(thermostat.down(11)).toEqual('The temperature has been set to 10 degrees celcius and cannot be set below')
+    expect(thermostat.getTemperature()).toEqual(10)
+  });
+
+  it('cannot increase the temperature above 25 degrees celcius when power saving mode is on', () => {
+    const thermostat = new Thermostat();
+    thermostat.setPowerSavingModeOnOff('on');
+    thermostat.up(6);
+    expect(thermostat.getTemperature()).toEqual(25)
   });
 });
 
