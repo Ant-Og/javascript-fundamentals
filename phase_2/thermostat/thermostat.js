@@ -24,8 +24,8 @@ class Thermostat {
   }
 
   down(degreesDown) {
-    if(this.temperature - degreesDown <= 10) {
-      this.temperature = this.minTemp
+    if(this.temperature - degreesDown < this.minTemp) {
+      this.temperature = this.minTemp //10 degrees
       let message = 'The temperature has been set to 10 degrees celcius and cannot be set below';
       return message;
     } else {
