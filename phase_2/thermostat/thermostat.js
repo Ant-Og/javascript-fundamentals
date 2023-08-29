@@ -1,5 +1,3 @@
-const { on } = require("events");
-
 class Thermostat {
 
   constructor() {
@@ -28,7 +26,6 @@ class Thermostat {
   down(degreesDown) {
     if(this.temperature - degreesDown <= 10) {
       this.temperature = this.minTemp
-      console.log(this.temperature)
       let message = 'The temperature has been set to 10 degrees celcius and cannot be set below';
       return message;
     } else {
@@ -39,7 +36,6 @@ class Thermostat {
   }
 
   setPowerSavingModeOnOff(value) {
-    console.log(this.maxTemp)
     if(value === 'on') {
       this.powerSavingMode = true;
       this.maxTemp = 25;
@@ -51,6 +47,10 @@ class Thermostat {
       let message = 'PSM is off'
       return message
     }
+  }
+
+  reset() {
+    this.temperature = 20; 
   }
 }
 
