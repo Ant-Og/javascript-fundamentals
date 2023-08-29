@@ -42,5 +42,12 @@ describe('Thermostat', () =>{
     thermostat.up(6);
     expect(thermostat.getTemperature()).toEqual(25)
   });
+
+  it('resets the temperature to its default value of 20 degrees celcius', () => {
+    const thermostat = new Thermostat();
+    thermostat.up(5);
+    thermostat.reset();
+    expect(thermostat.getTemperature()).toEqual(20)
+  });
 });
 
