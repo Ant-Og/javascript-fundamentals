@@ -7,6 +7,7 @@ const fetchPokemon = (pokemon) => {
         id: data.id,
         height: data.height,
         weight: data.weight,
+        types: data.types[0].type.name,
       };
       console.log(pokemonClean);
     });
