@@ -4,9 +4,7 @@ class Weather {
   }
 
   async load(city) {
-    this.client.fetchWeatherData(city).then((weatherData) => {
-      this.data = weatherData;
-    });
+    this.data = await this.client.fetchWeatherData(city);
   }
 
   getWeatherData() {
